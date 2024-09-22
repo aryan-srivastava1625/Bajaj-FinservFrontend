@@ -11,8 +11,10 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const data = input.split(/[\s,]+/).filter(item => item); 
-    axios.post('http://localhost:3000/bfhl', { data, file_b64: fileBase64 })
+    const data = input.split(/[\s,]+/).filter(item => item);
+    
+    // Update the URL to your live backend on Render
+    axios.post('https://bajaj-finservbackend.onrender.com/bfhl', { data, file_b64: fileBase64 })
       .then((response) => {
         setResponse(response.data);
       })
